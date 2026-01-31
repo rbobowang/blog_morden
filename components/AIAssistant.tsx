@@ -7,7 +7,7 @@ const AIAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [messages, setMessages] = useState<{ role: 'user' | 'bot', text: string }[]>([
-    { role: 'bot', text: 'Greetings. I am Nova. How can I assist your explorations today?' }
+    { role: 'bot', text: '你好。我是 aita。今天有什么可以帮你的吗？' }
   ]);
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -24,8 +24,9 @@ const AIAssistant: React.FC = () => {
     setQuery('');
     setLoading(true);
 
-    const history = messages.map(m => ({
-      role: m.role === 'bot' ? 'model' : 'user' as const,
+    // Explicitly type history to match the expected format for the Gemini Chat API (user/model roles).
+    const history: { role: 'user' | 'model'; parts: { text: string }[] }[] = messages.map(m => ({
+      role: m.role === 'bot' ? 'model' : 'user',
       parts: [{ text: m.text }]
     }));
 
@@ -44,10 +45,10 @@ const AIAssistant: React.FC = () => {
                 <Bot size={18} className="text-white" />
               </div>
               <div>
-                <h3 className="text-sm font-bold font-orbitron tracking-tighter">NOVA ASSISTANT</h3>
+                <h3 className="text-sm font-bold font-orbitron tracking-tighter uppercase tracking-tight">aita 助手</h3>
                 <div className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] text-gray-400">CORE ONLINE</span>
+                  <span className="text-[10px] text-gray-400">核心在线</span>
                 </div>
               </div>
             </div>
@@ -85,8 +86,8 @@ const AIAssistant: React.FC = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask Nova anything..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                placeholder="向 aita 提问..."
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm"
               />
               <button 
                 onClick={handleSend}

@@ -45,9 +45,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, onClose }) => {
               {post.category}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">{post.title}</h2>
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex items-center gap-4 text-sm text-gray-400">
               <img src="https://picsum.photos/40/40" className="w-8 h-8 rounded-full border border-blue-500/30" alt="" />
-              <span>By {post.author}</span>
+              <span>作者：{post.author}</span>
               <span>•</span>
               <span>{post.date}</span>
             </div>
@@ -59,7 +59,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, onClose }) => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2 text-blue-400 font-semibold">
                 <Sparkles size={20} className="animate-pulse" />
-                <span>Nova AI Synthesis</span>
+                <span>aita AI 智能摘要</span>
               </div>
               {!summary && (
                 <button 
@@ -67,21 +67,21 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, onClose }) => {
                   disabled={loading}
                   className="px-4 py-1.5 glass rounded-lg text-xs font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2"
                 >
-                  {loading ? <Loader2 size={14} className="animate-spin" /> : 'Synthesize Content'}
+                  {loading ? <Loader2 size={14} className="animate-spin" /> : '开始内容合成'}
                 </button>
               )}
             </div>
             
             {loading ? (
               <div className="h-20 flex items-center justify-center">
-                <p className="text-gray-400 text-sm italic animate-pulse">Scanning neural patterns...</p>
+                <p className="text-gray-400 text-sm italic animate-pulse">正在扫描神经模式...</p>
               </div>
             ) : summary ? (
               <div className="text-gray-200 text-sm leading-relaxed whitespace-pre-wrap">
                 {summary}
               </div>
             ) : (
-              <p className="text-gray-500 text-sm italic">Unlock AI-generated insights for this post.</p>
+              <p className="text-gray-500 text-sm italic">解锁 AI 生成的独家洞察。</p>
             )}
           </div>
 
@@ -94,11 +94,11 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, onClose }) => {
           <div className="flex items-center gap-4 pt-8 border-t border-white/5">
             <button className="flex items-center gap-2 px-6 py-2.5 glass rounded-xl hover:bg-red-500/10 hover:text-red-400 transition-all">
               <Heart size={20} />
-              Like
+              点赞
             </button>
             <button className="flex items-center gap-2 px-6 py-2.5 glass rounded-xl hover:bg-blue-500/10 hover:text-blue-400 transition-all">
               <Share2 size={20} />
-              Share
+              分享
             </button>
           </div>
         </div>

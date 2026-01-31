@@ -7,7 +7,7 @@ import PostEditor from './components/PostEditor';
 import AIAssistant from './components/AIAssistant';
 import { Category, BlogPost } from './types';
 import { INITIAL_POSTS } from './constants';
-import { Sparkles, ArrowRight, Zap } from 'lucide-react';
+import { Sparkles, ArrowRight, Zap, Heart } from 'lucide-react';
 
 const App: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -55,25 +55,25 @@ const App: React.FC = () => {
         
         <div className="relative z-10 max-w-2xl">
           <div className="flex items-center gap-2 text-blue-400 font-bold tracking-widest text-xs mb-6 uppercase">
-            <Zap size={16} />
-            Evolving Intelligence
+            <Heart size={16} className="text-purple-400" />
+            2026 共鸣矩阵 & 进化中的智能
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Capturing the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Signals</span> of Tomorrow
+            在功能过剩的时代 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">捕捉最新共鸣</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed">
-            Personal notes on financial markets, emerging technologies, and the intersection of human health and art. Powered by neural synthesis.
+            实时追踪 2026 年 1 月的财经波动、环境智能进化以及影视文化中那些让灵魂震颤的溢价信号。
           </p>
           <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => setIsEditorOpen(true)}
               className="px-8 py-4 bg-blue-600 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/40"
             >
-              Start Transmitting
+              开始发布
               <ArrowRight size={20} />
             </button>
             <button className="px-8 py-4 glass rounded-2xl font-bold border border-white/10 hover:bg-white/5 transition-all">
-              Latest Signal
+              2026 核心逻辑
             </button>
           </div>
         </div>
@@ -84,9 +84,9 @@ const App: React.FC = () => {
         <div>
           <h2 className="text-2xl font-bold flex items-center gap-3">
             <div className="w-2 h-8 bg-blue-600 rounded-full" />
-            Archive Stream
+            2026 开年归档流
           </h2>
-          <p className="text-gray-500 text-sm ml-5 mt-1">Showing {filteredPosts.length} insights</p>
+          <p className="text-gray-500 text-sm ml-5 mt-1">显示 {filteredPosts.length} 条前瞻信号</p>
         </div>
         
         <div className="flex gap-2">
@@ -106,8 +106,8 @@ const App: React.FC = () => {
             <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-4">
               <Sparkles className="text-gray-600" size={40} />
             </div>
-            <h3 className="text-xl font-bold text-gray-400">No signals found in this frequency</h3>
-            <p className="text-gray-600 mt-2 max-w-xs mx-auto">Try switching categories or start a new transmission to populate the archives.</p>
+            <h3 className="text-xl font-bold text-gray-400">当前频段未发现信号</h3>
+            <p className="text-gray-600 mt-2 max-w-xs mx-auto">尝试切换分类或开始新的传输以填充归档。</p>
           </div>
         )}
       </div>
@@ -136,15 +136,15 @@ const App: React.FC = () => {
             <div className="w-6 h-6 bg-blue-600/20 rounded flex items-center justify-center">
               <Sparkles className="text-blue-500" size={12} />
             </div>
-            <span className="font-orbitron font-bold tracking-tighter text-gray-400">NOVASPHERE AI</span>
+            <span className="font-orbitron font-bold tracking-tighter text-gray-400 uppercase">AITA AI</span>
           </div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-blue-400 transition-colors">Neural Network</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">Privacy Core</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">共鸣矩阵 2026</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">隐私核心</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">系统洞察</a>
           </div>
-          <div>
-            &copy; 2024 NOVASPHERE. ALL SYSTEMS GO.
+          <div className="tracking-tighter uppercase font-medium">
+            &copy; 2026 AITA. 所有系统运行正常.
           </div>
         </div>
       </footer>

@@ -12,7 +12,8 @@ import {
   Sparkles,
   Search,
   Menu,
-  X
+  X,
+  HeartHandshake
 } from 'lucide-react';
 
 interface LayoutProps {
@@ -26,7 +27,8 @@ const Layout: React.FC<LayoutProps> = ({ children, activeCategory, setActiveCate
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'All Insights', icon: <LayoutDashboard size={20} />, value: 'All' },
+    { label: '所有洞察', icon: <LayoutDashboard size={20} />, value: 'All' },
+    { label: Category.RESONANCE, icon: <HeartHandshake size={20} />, value: Category.RESONANCE },
     { label: Category.FINANCE, icon: <TrendingUp size={20} />, value: Category.FINANCE },
     { label: Category.TECH, icon: <Cpu size={20} />, value: Category.TECH },
     { label: Category.IT, icon: <Code size={20} />, value: Category.IT },
@@ -47,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeCategory, setActiveCate
               <Sparkles className="text-white" size={24} />
             </div>
             <h1 className="text-xl font-bold font-orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              NOVASPHERE
+              AITA
             </h1>
           </div>
 
@@ -79,7 +81,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeCategory, setActiveCate
               className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-xl font-semibold shadow-lg shadow-blue-900/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               <PlusCircle size={20} />
-              Create Post
+              发布文章
             </button>
           </div>
         </div>
@@ -88,8 +90,8 @@ const Layout: React.FC<LayoutProps> = ({ children, activeCategory, setActiveCate
           <div className="flex items-center gap-3">
             <img src="https://picsum.photos/40/40" className="w-10 h-10 rounded-full border border-blue-500/50" alt="avatar" />
             <div>
-              <p className="text-sm font-semibold">Nova Admin</p>
-              <p className="text-xs text-gray-500">Chief Innovator</p>
+              <p className="text-sm font-semibold">aita 管理员</p>
+              <p className="text-xs text-gray-500">首席创新官</p>
             </div>
           </div>
         </div>
@@ -109,14 +111,14 @@ const Layout: React.FC<LayoutProps> = ({ children, activeCategory, setActiveCate
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
             <input 
               type="text" 
-              placeholder="Search cosmic archives..." 
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
+              placeholder="搜索星际档案..." 
+              className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-sm"
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex px-4 py-1.5 glass rounded-full text-xs font-semibold text-blue-400 animate-pulse border-blue-500/20">
-              NETWORK: STABLE
+            <div className="hidden sm:flex px-4 py-1.5 glass rounded-full text-[10px] font-semibold text-blue-400 animate-pulse border-blue-500/20 tracking-tighter">
+              网络状态：全系统正常
             </div>
           </div>
         </header>
